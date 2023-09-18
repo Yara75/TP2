@@ -1,12 +1,12 @@
 import pytest
-from calculator import calculator
+from calculator import Calculator
 
 def test_add():
-    assert calculator.add(1,1) == 2
-    assert calculator.add(-1,1) == 0
+    assert Calculator.add(1,1) == 2
+    assert Calculator.add(-1,1) == 0
 
 def test_add2():
-    assert calculator.add(10,10) == 20
+    assert Calculator.add(10,10) == 20
 
 
 
