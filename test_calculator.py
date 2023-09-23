@@ -40,3 +40,19 @@ class TestCalculator:
         cal = Calculator()
         with pytest.raises(ZeroDivisionError):
             cal.divide(3, 0)
+
+    def test_multiply(self):
+        cal = Calculator();
+        assert cal.multiply(2, 2) == 4
+        assert cal.multiply(2, 0) == 0
+        assert cal.multiply(2, -2) == -4
+        assert cal.multiply(2, 0.5) == 1.0
+        assert cal.multiply(2, -0.5) == -1.0
+        assert cal.multiply(2, 0.0) == 0.0
+        assert cal.multiply(2, -0.0) == -0.0
+        assert cal.multiply(2, 0.0000000001) == 0.0000000002
+
+    def test_multiply_exception(self):
+        cal = Calculator()
+        with pytest.raises(TypeError):
+            cal.multiply("ze", 1)
