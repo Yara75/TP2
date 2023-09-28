@@ -42,7 +42,7 @@ class TestCalculator:
             cal.divide(3, 0)
 
     def test_multiply(self):
-        cal = Calculator();
+        cal = Calculator()
         assert cal.multiply(2, 2) == 4
         assert cal.multiply(2, 0) == 0
         assert cal.multiply(2, -2) == -4
