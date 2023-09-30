@@ -10,10 +10,20 @@ class IntegerList:
         self.list.remove(num)
 
     def get_average(self):
+        if len(self.list) == 0:
+            return 0  # Retourner 0 si la liste est vide
+
         avg = 0
+        count = 0
         for i in self.list:
-            avg += i
-        avg = avg / len(self.list)
+            if isinstance(i, (int, float)):  # Vérifier si l'élément est un nombre
+                avg += i
+                count += 1
+
+        if count == 0:
+            return 0  # Retourner 0 si aucun élément int ou float n'est trouvé
+
+        avg = avg / count
         return avg
 
     def get_max(self):

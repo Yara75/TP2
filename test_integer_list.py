@@ -41,3 +41,17 @@ class TestIntegerList:
         listElems = IntegerList(maList)
         with pytest.raises(Exception):
             listElems.remove_integer(elem)
+
+    @pytest.mark.parametrize("maList, res", [([4, 6, 9, 10], 7.25),  # Liste d'entiers
+                                             ([4.5, 4.5, 10.5], 6.5),  # Liste de flottants
+                                             ([], 0),  # Liste vide
+                                             (["234", 9.0, True], 5.0),  # Liste mixte
+                                             ([True, False], 0.5),  # Liste de booléens
+                                             (["abc", "def"], 0),  # Liste de chaînes
+                                             ([None, None], 0),  # Liste de valeurs None
+                                             ([10], 10),  # Liste avec un seul élément
+                                             ([-1, -2, -3], -2)  # Liste de nombres négatifs
+                                             ])
+    def test_get_average(self, maList, res):
+        listElems = IntegerList(maList)
+        assert listElems.get_average() == res
