@@ -61,7 +61,7 @@ class TestIntegerList:
                                               ([956, 123, 1966], 1966),
                                               ([14.75, 8549.27, 0.1], 8549.27)])
 
-    def get_max(maList, elem):
+     def get_max(self, maList, elem):
         listElems = IntegerList(maList)
         assert listElems.get_max() == elem
 
@@ -69,6 +69,34 @@ class TestIntegerList:
                                               ([956, 123, 1966], 123),
                                               ([14.75, 8549.27, 0.1], 0.1)])
 
-    def get_min(maList, elem):
+    def get_min(self, maList, elem):
         listElems = IntegerList(maList)
         assert listElems.get_min() == elem
+
+
+    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 23),
+                                              ([956, 123, 1966], 3045),
+                                              ([14.75, 8549.27, 0.1], 8564,12)])
+
+    def get_sum(self, maList, elem):
+        listElems = IntegerList(maList)
+        assert listElems.get_sum() == elem
+
+    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 28,22),
+                                              ([96, 23, 196], 5028,67),
+                                              ([14.7, 84.27, 0.1], 1348,64)])
+
+    def get_variance(self, maList, elem):
+        listElems = IntegerList(maList)
+        assert listElems.get_variance() == elem
+
+    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 5,31),
+                                              ([96, 23, 196], 70,91),
+                                              ([14.7, 84.27, 0.1], 36.72)])
+
+
+    def get_ecartype(self, maList, elem):
+        listElems = IntegerList(maList)
+        assert listElems.get_ecartype() == elem
+
+
