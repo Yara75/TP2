@@ -31,20 +31,44 @@ class IntegerList:
 
     def get_min(self):
         return min(self.list) """
+    
+       def get_max(self):
+        elem = self.list[0]
 
-    def get_max(maList):
-        elem = maList[0]
-
-        for i in maList: 
-            if maList[i] > elem:
-                elem = maList
+        for i in self.list: 
+            if i > elem:
+                elem = i
         return elem
 
-    def get_min(maList):
-        elem = maList[0]
+    def get_min(self):
+        elem = self.list[0]
         print(elem)
 
-        for i in maList: 
-            if maList[i] < elem:
-                elem = maList
+        for i in self.list: 
+            if i < elem:
+                elem = i
         return elem
+
+    def get_sum(self):
+        for i in self.list:
+            if isinstance(i, (int, float)):
+                somme = somme + i
+        return somme
+
+    def get_variance(self): 
+        moy = self.get_average()
+
+        for i in self.list:
+            som = som + (i - moy)**2
+
+        if moy != 0:
+            variance = som / moy
+
+        return variance
+
+    def get_ecartype(self):
+        val = self.get_variance()
+        ecart = math.sqrt(val)
+        return ecart
+
+
