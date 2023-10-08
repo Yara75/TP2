@@ -26,8 +26,25 @@ class IntegerList:
         avg = avg / count
         return avg
 
-    def get_max(self):
+    """def get_max(self):
         return max(self.list)
 
     def get_min(self):
-        return min(self.list)
+        return min(self.list) """
+
+    def get_max(maList):
+        elem = maList[0]
+
+        for i in maList: 
+            if maList[i] > elem:
+                elem = maList
+        return elem
+
+    def get_min(maList):
+        elem = maList[0]
+        print(elem)
+
+        for i in maList: 
+            if maList[i] < elem:
+                elem = maList
+        return elem

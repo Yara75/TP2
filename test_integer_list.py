@@ -37,6 +37,7 @@ class TestIntegerList:
     @pytest.mark.parametrize("maList, elem", [([3, 5, 6], 2),
                                               ([15143, 2432432, 2342], 5.5),
                                               ([12.34, 1341.2352, 14234.24], 6)])
+
     def test_remove_elem_not_in_the_list(self, maList, elem):
         listElems = IntegerList(maList)
         with pytest.raises(Exception):
@@ -55,3 +56,19 @@ class TestIntegerList:
     def test_get_average(self, maList, res):
         listElems = IntegerList(maList)
         assert listElems.get_average() == res
+
+    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 14),
+                                              ([956, 123, 1966], 1966),
+                                              ([14.75, 8549.27, 0.1], 8549.27)])
+
+    def get_max(maList, elem):
+        listElems = IntegerList(maList)
+        assert listElems.get_max() == elem
+
+    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 1),
+                                              ([956, 123, 1966], 123),
+                                              ([14.75, 8549.27, 0.1], 0.1)])
+
+    def get_min(maList, elem):
+        listElems = IntegerList(maList)
+        assert listElems.get_min() == elem
