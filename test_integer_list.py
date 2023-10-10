@@ -72,23 +72,21 @@ class TestIntegerList:
 
     @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 23),
                                               ([956, 123, 1966], 3045),
-                                              ([14.75, 8549.27, 0.1], 8564,12)])
+                                              ([14.75, 8549.27, 0.1], 8564.12)])
     def test_get_sum(self, maList, elem):
         listElems = IntegerList(maList)
         assert listElems.get_sum() == elem
 
-    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 28,22),
-                                              ([96, 23, 196], 5028,67),
-                                              ([14.7, 84.27, 0.1], 1348,64)])
+    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 28.22),
+                                              ([96, 23, 196], 5028.67),
+                                              ([14.7, 84.27, 0.1], 1348.64)])
     def test_get_variance(self, maList, elem):
         listElems = IntegerList(maList)
         assert listElems.get_variance() == elem
 
-    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 5,31),
-                                              ([96, 23, 196], 70,91),
+    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 5.31),
+                                              ([96, 23, 196], 70.91),
                                               ([14.7, 84.27, 0.1], 36.72)])
     def test_get_ecartype(self, maList, elem):
         listElems = IntegerList(maList)
         assert listElems.get_ecartype() == elem
-
-

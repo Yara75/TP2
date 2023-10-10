@@ -39,7 +39,6 @@ class IntegerList:
 
     def get_min(self):
         elem = self.list[0]
-        print(elem)
 
         for i in self.list: 
             if i < elem:
