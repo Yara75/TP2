@@ -1,3 +1,6 @@
+import math
+
+
 class IntegerList:
 
     def __init__(self, maList):
@@ -25,14 +28,8 @@ class IntegerList:
 
         avg = avg / count
         return avg
-
-    """def get_max(self):
-        return max(self.list)
-
-    def get_min(self):
-        return min(self.list) """
     
-       def get_max(self):
+    def get_max(self):
         elem = self.list[0]
 
         for i in self.list: 
@@ -50,12 +47,14 @@ class IntegerList:
         return elem
 
     def get_sum(self):
+        global somme
         for i in self.list:
             if isinstance(i, (int, float)):
                 somme = somme + i
         return somme
 
     def get_variance(self): 
+        global som, variance
         moy = self.get_average()
 
         for i in self.list:
