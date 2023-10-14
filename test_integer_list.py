@@ -1,4 +1,5 @@
 import pytest
+import math
 from integer_list import IntegerList
 
 
@@ -57,36 +58,38 @@ class TestIntegerList:
         assert listElems.get_average() == res
 
     @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 14),
+                                              ([-85, 1, 1.25], 1.25),
+                                              ([-235, -58, -66], -58),  # Liste vide
+                                              ([False, 9.0, True], 9.0),
+                                              ([math.sqrt(16), 1919, math.pi], 1919),
+                                              ([False, False, True], True),
                                               ([956, 123, 1966], 1966),
+                                              (["abc", "ghi", "def"], 'ghi'),
                                               ([14.75, 8549.27, 0.1], 8549.27)])
     def test_get_max(self, maList, elem):
         listElems = IntegerList(maList)
         assert listElems.get_max() == elem
 
     @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 1),
+                                              (["sio", "sfr", "rbt"], 'rbt'),
                                               ([956, 123, 1966], 123),
+                                              ([-859, -500, 1], -859),  # Liste vide
+                                              ([False, 0.215, True], False),
+                                              ([math.sqrt(124), 1942, round(math.pi, 2)], 3.14),
+                                              ([False, False, True], False),
+                                              ([-45, False, True], -45),
                                               ([14.75, 8549.27, 0.1], 0.1)])
     def test_get_min(self, maList, elem):
         listElems = IntegerList(maList)
         assert listElems.get_min() == elem
 
     @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 23),
+                                              ([], 0),
                                               ([956, 123, 1966], 3045),
-                                              ([14.75, 8549.27, 0.1], 8564.12)])
+                                              ([14.75, 8549.27, 0.1], 8564.12),
+                                              (["dev", "ops", "TP2"], 0),
+                                              ([True, -2, "ING4"], -1),
+                                              (["APP", 21, math.sqrt(121)], 32)])
     def test_get_sum(self, maList, elem):
         listElems = IntegerList(maList)
         assert listElems.get_sum() == elem
-
-    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 28.22),
-                                              ([96, 23, 196], 5028.67),
-                                              ([14.7, 84.27, 0.1], 1348.64)])
-    def test_get_variance(self, maList, elem):
-        listElems = IntegerList(maList)
-        assert listElems.get_variance() == elem
-
-    @pytest.mark.parametrize("maList, elem", [([8, 14, 1], 5.31),
-                                              ([96, 23, 196], 70.91),
-                                              ([14.7, 84.27, 0.1], 36.72)])
-    def test_get_ecartype(self, maList, elem):
-        listElems = IntegerList(maList)
-        assert listElems.get_ecartype() == elem

@@ -47,26 +47,11 @@ class IntegerList:
 
     def get_sum(self):
         global somme
+        somme = 0
         for i in self.list:
             if isinstance(i, (int, float)):
                 somme = somme + i
         return somme
 
-    def get_variance(self): 
-        global som, variance
-        moy = self.get_average()
-
-        for i in self.list:
-            som = som + (i - moy)**2
-
-        if moy != 0:
-            variance = som / moy
-
-        return variance
-
-    def get_ecartype(self):
-        val = self.get_variance()
-        ecart = math.sqrt(val)
-        return ecart
 
 
