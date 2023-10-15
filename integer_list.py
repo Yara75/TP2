@@ -52,6 +52,3 @@ class IntegerList:
             if isinstance(i, (int, float)):
                 somme = somme + i
         return somme
-
-
-

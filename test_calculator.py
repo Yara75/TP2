@@ -33,7 +33,6 @@ class TestCalculator:
         assert cal.subtract(True, True) == 0
         assert cal.subtract(3j, round(math.pi, 1)) == 3j - 3.1
 
-
     def test_subtract_float(self):
         cal = Calculator()
         result = cal.subtract(10.3, 5.3)
@@ -60,7 +59,6 @@ class TestCalculator:
         assert round(cal.divide(-18.8, 87), 4) == -0.2161
         assert cal.divide(0, 3) == None
         assert round(cal.divide(math.sqrt(4), math.sqrt(12)), 1) == 0.6
-
 
     def test_divide_exception(self):
         cal = Calculator()
